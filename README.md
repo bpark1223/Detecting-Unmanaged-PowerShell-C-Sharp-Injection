@@ -10,7 +10,7 @@ C# is a managed language, meaning that the code you write isn't directly turned 
 <img width="1433" alt="Screenshot 2024-07-02 at 3 08 23 PM" src="https://github.com/bpark1223/Detecting-Unmanaged-PowerShell-C-Sharp-Injection/assets/77799235/88d6ddea-34a3-43e9-924e-e2ea0f07b696">
 </p> 2. We can check the module loads for powershell.exe, by right-clicking on powershell.exe, clicking "Properties", and navigating to "Modules". The presence of "Microsoft .NET Runtime...", clr.dll, and clrjit.dll should attract our attention. clr.dll, and clrjit.dll are DLLs used to execute C# based bytecode. If they are loaded in processes that do not require them, it suggests a potential execute-assembly or unmanaged PowerShell injection attack.
 <img width="1427" alt="Screenshot 2024-07-02 at 3 14 15 PM" src="https://github.com/bpark1223/Detecting-Unmanaged-PowerShell-C-Sharp-Injection/assets/77799235/98b7bd9a-b1a1-402a-a098-a368850183b5">
-</p> 3. To simulate this attack, I inject an unmanaged PowerShell-like DLL into a random process, such as spoolsv.exe. In order to do this, i first identify the PID of spoolsv.exe, which is "2380."
+</p> 3. To simulate an injection attack, I inject an unmanaged PowerShell-like DLL into a random process, such as spoolsv.exe. In order to do this, i first identify the PID of spoolsv.exe, which is "2380."
 <img width="1415" alt="Screenshot 2024-07-02 at 3 22 00 PM" src="https://github.com/bpark1223/Detecting-Unmanaged-PowerShell-C-Sharp-Injection/assets/77799235/3362e8cc-494e-4f81-a188-4440a334d528">
 </p> 4. Using the PID of spoolsv.exe, I now perform the PowerShell attack by injecting the following code into my PowerShell terminal: </p>
 </p> powershell -ep bypass </p>
