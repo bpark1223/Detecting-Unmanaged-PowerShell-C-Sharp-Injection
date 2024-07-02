@@ -6,7 +6,7 @@ C# is a managed language, meaning that the code you write isn't directly turned 
 </p>- C#</p>
 </p>- Process Hacker</p>
 <h2>Step-by-Step Walkthrough</h2>
-</p> 1. The first step is to launch the Process Hacker executable in powershell. Using Process Hacker, we can observe a range of processes within our environment, with color-coded distinctions based on their names. One thing to note is that powershell.exe is green, which signifies that it is a managed process. You can chover over each process to check its managed status </p>
+</p> 1. The first step is to launch the Process Hacker executable in powershell. Using Process Hacker, we can observe a range of processes within our environment, with color-coded distinctions based on their names. One thing to note is that powershell.exe is green, which signifies that it is a managed process. You can hover over each process to check its managed status. </p>
 <img width="1433" alt="Screenshot 2024-07-02 at 3 08 23 PM" src="https://github.com/bpark1223/Detecting-Unmanaged-PowerShell-C-Sharp-Injection/assets/77799235/88d6ddea-34a3-43e9-924e-e2ea0f07b696">
 </p> 2. We can check the module loads for powershell.exe, by right-clicking on powershell.exe, clicking "Properties", and navigating to "Modules". The presence of "Microsoft .NET Runtime...", clr.dll, and clrjit.dll should attract our attention. clr.dll, and clrjit.dll are DLLs used to execute C# based bytecode. If they are loaded in processes that do not require them, it suggests a potential execute-assembly or unmanaged PowerShell injection attack.
 <img width="1427" alt="Screenshot 2024-07-02 at 3 14 15 PM" src="https://github.com/bpark1223/Detecting-Unmanaged-PowerShell-C-Sharp-Injection/assets/77799235/98b7bd9a-b1a1-402a-a098-a368850183b5">
